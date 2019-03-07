@@ -9,9 +9,25 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todoData: ['list item 1', 'second list item', 'a 3rd item for the list'],
+      todoData: [
+        {
+          text: 'list item 1',
+          id: 1,
+          completed: false
+        },
+        {
+          text: 'second list item',
+          id: 2,
+          completed: false
+        },
+        {
+          text: 'a 3rd item for the list',
+          id: 3,
+          completed: false
+        }
+      ],
+      todoId: 4,
       formText: '',
-      formId: 1,
     };
 
     this.handleFormText = this.handleFormText.bind(this);
@@ -21,15 +37,22 @@ class App extends React.Component {
   handleFormText(event) {
     this.setState({
       formText: event.target.value,
-      formId: this.state.formId + 1,
     });
   }
 
   handleSubmit(event) {
     event.preventDefault();
     this.setState({
-      todoData: [...this.state.todoData, this.state.formText],
+      todoData: [
+        ...this.state.todoData,
+        {
+          text: this.state.formText,
+          id: this.state.todoId,
+          completed: false
+        }
+      ],
       formText: '',
+      todoId: this.state.todoId + 1,
     })
   }
 
@@ -39,7 +62,7 @@ class App extends React.Component {
         <h2>Welcome to your Todo App!</h2>
         {/* <input type='text' value={this.state.formText} onChange={this.handleFormText} /> */}
         <TodoForm formText={this.state.formText} handleFormText={this.handleFormText} handleSubmit={this.handleSubmit} />
-        <TodoList listItems={this.state.todoData}/>
+        <TodoList listItems={this.state.todoData} />
       </div>
     );
   }

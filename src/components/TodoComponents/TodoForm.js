@@ -4,7 +4,6 @@ class TodoForm extends React.Component {
   render() {
     return (
       <div>
-        {console.log(this.props)}
         <form>
           <input type='text' value={this.props.formText} onChange={this.props.handleFormText} />
           <input type='submit' value='Add Todo' onClick={this.props.handleSubmit} />
