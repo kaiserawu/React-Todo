@@ -2,6 +2,8 @@ import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 
+import './components/TodoComponents/Todo.css';
+
 class App extends React.Component {
   constructor() {
     super();
@@ -39,17 +41,19 @@ class App extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.setState({
-      todoData: [
-        ...prevState.todoData,
-        {
-          text: this.state.formText,
-          id: this.state.todoId,
-          completed: false
-        }
-      ],
-      formText: '',
-      todoId: this.state.todoId + 1,
+    this.setState(prevState => {
+      return {
+        todoData: [
+          ...prevState.todoData,
+          {
+            text: this.state.formText,
+            id: this.state.todoId,
+            completed: false
+          }
+        ],
+        formText: '',
+        todoId: this.state.todoId + 1,
+      }
     })
   }
 
