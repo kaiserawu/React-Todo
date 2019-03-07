@@ -6,7 +6,6 @@ import Todo from './Todo';
 class TodoList extends React.Component {
   constructor(props) {
     super(props);
-    this.listItems = this.props.listItems;
   }
 
   render() {
@@ -14,7 +13,7 @@ class TodoList extends React.Component {
       <div>
         <h3>Test Header For TodoList</h3>
         <ul>
-          {this.listItems.map((item, index) => <Todo key={index} item={item} />)}
+          {this.props.listItems.map((item, index) => <Todo key={index} item={item} />)}
         </ul>
       </div>
     );

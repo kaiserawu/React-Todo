@@ -9,7 +9,6 @@ class Todo extends React.Component {
   render() {
     return (
       <div>
-        {console.log(this.props)}
         <li>{this.item}</li>
       </div>
     );
