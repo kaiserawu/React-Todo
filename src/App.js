@@ -31,6 +31,7 @@ class App extends React.Component {
 
     this.handleFormText = this.handleFormText.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleTodoClick = this.handleTodoClick.bind(this);
   }
 
   handleFormText(event) {
@@ -57,12 +58,30 @@ class App extends React.Component {
     })
   }
 
+  handleTodoClick(todoId) {
+    this.setState(prevState => {
+      return {
+        todoData: prevState.todoData.map(todo => {
+          if (todo.id === todoId) {
+            return {
+              text: todo.text,
+              id: todo.id,
+              completed: !todo.completed
+            }
+          } else {
+            return todo;
+          }
+        })
+      }
+    })
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm formText={this.state.formText} handleFormText={this.handleFormText} handleSubmit={this.handleSubmit} />
-        <TodoList listItems={this.state.todoData} />
+        <TodoList listItems={this.state.todoData} handleTodoClick={this.handleTodoClick} />
       </div>
     );
   }

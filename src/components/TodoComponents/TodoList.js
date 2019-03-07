@@ -3,13 +3,15 @@
 import React from 'react';
 import Todo from './Todo';
 
+import './Todo.css';
+
 class TodoList extends React.Component {
   render() {
     return (
       <div>
         <h3>Test Header For TodoList</h3>
         <ul>
-          {this.props.listItems.map((item) => <Todo key={item.id} text={item.text} />)}
+          {this.props.listItems.map((item) => <Todo item={item} key={item.id} handleTodoClick={this.props.handleTodoClick} />)}
         </ul>
       </div>
     );
