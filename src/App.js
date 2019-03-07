@@ -41,7 +41,7 @@ class App extends React.Component {
     event.preventDefault();
     this.setState({
       todoData: [
-        ...this.state.todoData,
+        ...prevState.todoData,
         {
           text: this.state.formText,
           id: this.state.todoId,
