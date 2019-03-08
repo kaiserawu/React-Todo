@@ -80,7 +80,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="app" >
         <h2>Welcome to your Todo App!</h2>
         <TodoForm formText={this.state.formText} handleFormText={this.handleFormText} handleSubmit={this.handleSubmit} handleClearCompleted={this.handleClearCompleted} />
         <TodoList listItems={this.state.todoData} handleTodoClick={this.handleTodoClick} />
