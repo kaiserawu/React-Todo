@@ -8,7 +8,7 @@ class TodoForm extends React.Component {
           <input type='text' value={this.props.formText} onChange={this.props.handleFormText} />
           <input type='submit' value='Add Todo' onClick={this.props.handleSubmit} />
         </form>
-        <input type='button' value='Clear Completed' />
+        <input type='button' value='Clear Completed' onClick={this.props.handleClearCompleted} />
       </div>
     );
   }

@@ -28,19 +28,15 @@ class App extends React.Component {
       todoId: 4,
       formText: '',
     };
-
-    this.handleFormText = this.handleFormText.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleTodoClick = this.handleTodoClick.bind(this);
   }
 
-  handleFormText(event) {
+  handleFormText = event => {
     this.setState({
       formText: event.target.value,
     });
   }
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
     this.setState(prevState => {
       return {
@@ -58,7 +54,7 @@ class App extends React.Component {
     })
   }
 
-  handleTodoClick(todoId) {
+  handleTodoClick = todoId => {
     this.setState(prevState => {
       return {
         todoData: prevState.todoData.map(todo => {
@@ -76,11 +72,17 @@ class App extends React.Component {
     })
   }
 
+  handleClearCompleted = () => {
+    this.setState(prevState => {
+      return { todoData: prevState.todoData.filter(todo => todo.completed === false) }
+    })
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm formText={this.state.formText} handleFormText={this.handleFormText} handleSubmit={this.handleSubmit} />
+        <TodoForm formText={this.state.formText} handleFormText={this.handleFormText} handleSubmit={this.handleSubmit} handleClearCompleted={this.handleClearCompleted} />
         <TodoList listItems={this.state.todoData} handleTodoClick={this.handleTodoClick} />
       </div>
     );
