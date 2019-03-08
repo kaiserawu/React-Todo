@@ -10,7 +10,7 @@ class TodoList extends React.Component {
     return (
       <div>
         <h3>Here are your tasks for today!</h3>
-        <ul>
+        <ul className='todoList'>
           {this.props.listItems.map((item) => <Todo item={item} key={item.id} handleTodoClick={this.props.handleTodoClick} />)}
         </ul>
       </div>

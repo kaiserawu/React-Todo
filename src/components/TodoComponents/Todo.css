@@ -23,6 +23,7 @@ h2 {
 #todoForm {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .inputForm {
@@ -44,6 +45,15 @@ h2 {
   background-color: #5B8FF9;
   color: white;
   font-size: 14px;
+}
+
+.todoList {
+  overflow: auto;
+}
+
+.todo {
+  float: left;
+  clear: both;
 }
 
 .todo:hover {
