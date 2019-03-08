@@ -46,6 +46,10 @@ h2 {
   font-size: 14px;
 }
 
+.todo:hover {
+  cursor: pointer;
+}
+
 .completed {
   text-decoration: line-through;
 }

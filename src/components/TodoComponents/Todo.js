@@ -6,7 +6,7 @@ class Todo extends React.Component {
     let completed = this.props.item.completed ? 'completed' : '';
     return (
       <div>
-        <li className={completed} id={this.props.item.id} onClick={() => { this.props.handleTodoClick(this.props.item.id) }} >{this.props.item.text}</li>
+        <li className={`todo ${completed}`} id={this.props.item.id} onClick={() => { this.props.handleTodoClick(this.props.item.id) }} >{this.props.item.text}</li>
       </div>
     );
   }
