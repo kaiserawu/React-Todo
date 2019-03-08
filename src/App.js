@@ -7,27 +7,25 @@ import './components/TodoComponents/Todo.css';
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {
-      todoData: [
-        {
-          text: 'list item 1',
-          id: 1,
-          completed: false
-        },
-        {
-          text: 'second list item',
-          id: 2,
-          completed: false
-        },
-        {
-          text: 'a 3rd item for the list',
-          id: 3,
-          completed: false
-        }
-      ],
-      todoId: 4,
-      formText: '',
-    };
+    this.state = this.loadFromLocalStorageIfAvailable();
+  }
+  
+  componentDidUpdate() {
+    localStorage.setItem('lastState', JSON.stringify(this.state));
+  }
+
+  loadFromLocalStorageIfAvailable = () => {
+    let storedState = JSON.parse(localStorage.getItem('lastState'));
+    console.log(storedState);
+    if (storedState !== null) {
+      return storedState;
+    } else {
+      return {
+        todoData: [],
+        todoId: 1,
+        formText: ''
+      };
+    }
   }
 
   handleFormText = event => {
