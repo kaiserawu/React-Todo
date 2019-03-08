@@ -9,16 +9,19 @@ class App extends React.Component {
     super();
     this.state = this.loadFromLocalStorageIfAvailable();
   }
-  
+
   componentDidUpdate() {
     localStorage.setItem('lastState', JSON.stringify(this.state));
   }
 
   loadFromLocalStorageIfAvailable = () => {
     let storedState = JSON.parse(localStorage.getItem('lastState'));
-    console.log(storedState);
     if (storedState !== null) {
-      return storedState;
+      return {
+        todoData: storedState.todoData,
+        todoId: storedState.todoId,
+        formText: ''
+      }
     } else {
       return {
         todoData: [],
