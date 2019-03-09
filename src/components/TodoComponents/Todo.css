@@ -1,0 +1,65 @@
+html {
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #B3CAF8;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+#app {
+  max-width: 470px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+#todoForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inputForm {
+  width: 70%;
+}
+
+.textField {
+  height: 30px;
+  width: 60%;
+  font-size: 12px;
+  padding: 0 10px;
+  border: 2px solid black;
+  border-radius: 2px;
+}
+
+.button {
+  height: 30px;
+  border-radius: 5px;
+  background-color: #5B8FF9;
+  color: white;
+  font-size: 14px;
+}
+
+.todoList {
+  overflow: auto;
+}
+
+.todo {
+  float: left;
+  clear: both;
+}
+
+.todo:hover {
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+}
